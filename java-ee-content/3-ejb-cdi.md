@@ -1,0 +1,1 @@
+Demonstrate understanding of Enterprise JavaBeans and CDI beans, their lifecycle and memory scopes
