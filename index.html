@@ -2,12 +2,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport"
-			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!--	<meta name="viewport"-->
+	<!--			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
 
 	<title>Java EE Architecture</title>
 
-	<link rel="stylesheet" href="css/reset.css">
+	<!--	<link rel="stylesheet" href="css/reset.css">-->
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css">
 
@@ -15,44 +15,184 @@
 	<link rel="stylesheet" href="lib/css/monokai.css">
 
 	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' :
-			'css/print/paper.css';
-		document.getElementsByTagName('head')[0].appendChild(link);
-	</script>
+	<!--	<script>-->
+	<!--		var link = document.createElement('link');-->
+	<!--		link.rel = 'stylesheet';-->
+	<!--		link.type = 'text/css';-->
+	<!--		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' :-->
+	<!--			'css/print/paper.css';-->
+	<!--		document.getElementsByTagName('head')[0].appendChild(link);-->
+	<!--	</script>-->
 </head>
 <body>
 <div class="reveal">
 	<div class="slides">
-		<section style="text-align:left;font-size: xx-large;"
-				data-markdown="java-ee-content/0-agenda.md"></section>
+		<!--		<section style="text-align:left;font-size: xx-large;"-->
+		<!--				data-markdown="java-ee-content/0-agenda.md"></section>-->
 
-		<section data-markdown="java-ee-content/1-java-ee-overview.md"
-				data-separator-vertical="^\n\n"></section>
+		<!--		<section data-markdown="java-ee-content/1-java-ee-overview.md"-->
+		<!--				data-separator-vertical="^\n\n"></section>-->
 
-		<section data-markdown="java-ee-content/2-app-component-funcs.md"
-				data-separator-vertical="^\n\n"></section>
+		<!--		<section data-markdown="java-ee-content/2-app-component-funcs.md"-->
+		<!--				data-separator-vertical="^\n\n"></section>-->
 
-		<section data-markdown="java-ee-content/3-ejb-cdi.md"
-				data-separator-vertical="^\n\n"></section>
+		<!--		<section data-markdown="java-ee-content/3-ejb-cdi.md"-->
+		<!--				data-separator-vertical="^\n\n"></section>-->
 
-		<section data-markdown="java-ee-content/4-bean-components.md"
-				data-separator-vertical="^\n\n"></section>
+		<!--		<section data-markdown="java-ee-content/4-bean-components.md"-->
+		<!--				data-separator-vertical="^\n\n"></section>-->
 
-		<section data-markdown="java-ee-content/5-ejb-transactions.md"
-				data-separator-vertical="^\n\n"></section>
+		<!--		<section data-markdown="java-ee-content/5-ejb-transactions.md"-->
+		<!--				data-separator-vertical="^\n\n"></section>-->
 
-		<section data-markdown="java-ee-content/6-deploy-app.md"
-				data-separator-vertical="^\n\n"></section>
+		<!--		<section data-markdown="java-ee-content/6-deploy-app.md"-->
+		<!--				data-separator-vertical="^\n\n"></section>-->
+		<section>
+			<h2>Agenda</h2>
+			<ol>
+				<li>Java EE 7 standard services</li>
+				<li>Differentiate between application component functionalities</li>
+				<li>Enterprise JavaBeans and CDI beans</li>
+				<li>Relationship between bean components, annotations, injections, and JNDI</li>
+				<li>Controlling EJB transactions</li>
+				<li>Deploy Java EE application</li>
+			</ol>
+		</section>
+		<section>
+			<section>
+				<h2>Java EE 7 standard services</h2>
+				<ol>
+					<li>HTTP</li>
+					<li>HTTPS</li>
+					<li>Java Transaction API (JTA)</li>
+					<li>RMI-IIOP</li>
+					<li>Java IDL</li>
+					<li>JDBC API</li>
+					<li>Java Persistence API</li>
+					<li>Java Message Service (JMS)</li>
+					<li>Java Naming & Directory Interface (JNDI)</li>
+					<li>JavaMail</li>
+					<li>JavaBeans Activation Framework (JAF)</li>
+					<li>XML Processing</li>
+					<li>Java EE Connector Architecture</li>
+					<li>Security Services</li>
+					<li>Web Services</li>
+					<li>Concurrency Utilities</li>
+					<li>Batch</li>
+					<li>Management</li>
+					<li>Deployment</li>
+				</ol>
+
+				https://docs.oracle.com/javaee/7/firstcup/java-ee001.htm
+			</section>
+			<section>
+				<h2>Java EE 7 standard services</h2>
+				<ol>
+					<li>HTTP and HTTPS</li>
+					- client-side: defined by java.net
+					- server-side: defined by Servlet, JSP and JSF interfaces
+
+					<li>Java Transaction API (JTA)</li>
+					Consists 2 parts:
+					- Application-level: used by container and application to demarcate transaction
+					boundaries
+					- Interface between transaction manager and resource manager used at Java EE SPI
+					level
+
+					<li>RMI-IIOP</li>
+					<li>Java IDL</li>
+
+					<li>JDBC API</li>
+					API for connectivity with relational database system.
+
+					<li>Java Persistence API</li>
+					For management of persistence and orm.
+
+					<li>Java Message Service (JMS)</li>
+					Standard API for messaging, supports point-to-point messaging and
+					publish-subscribe model.
+
+					<li>Java Naming & Directory Interface (JNDI)</li>
+					Standard API for naming and directory access.
+
+					<li>JavaMail</li>
+					Allows a component to send e-mail
+
+					<li>JavaBeans Activation Framework (JAF)</li>
+					Framework for handling data in different MIME types.
+
+					<li>XML Processing</li>
+					Java API for XML Processing (JAXP) provides support for parsing XML.
+
+					<li>Java EE Connector Architecture</li>
+
+					<li>Security Services</li>
+					Java Authentication and Authorization Service (JAAS) enables services to
+					authenticate and enforce access controls upon users.
+					JACC
+					JASPIC
+
+					<li>Web Services</li>
+					JAX-WS, JAX-RPC support SOAP/HTTP protocol
+					Java API for JSON Processing (JSON-P) help processing JSON text.
+					Java API for WebSocket is standard API for creating WebSocket apps.
+					Java API for RESTful Web Services (JAX-RS) support REST services.
+
+					<li>Concurrency Utilities</li>
+					Standard API for providing asynchronous
+
+					<li>Batch</li>
+					Provide programming model for batch applications and a runtime for scheduling
+					and executing jobs.
+
+					<li>Management</li>
+					Manages Java EE servers using management enterprise bean.
+
+					<li>Deployment</li>
+					Defines a contract between deployment tools and Java EE products.
+				</ol>
+
+				https://docs.oracle.com/javaee/7/firstcup/java-ee001.htm
+			</section>
+			<section>
+				<h3>Java EE 7 containers</h3>
+				https://docs.oracle.com/javaee/7/firstcup/java-ee002.htm
+				https://docs.oracle.com/javaee/7/tutorial/overview004.htm
+			</section>
+			<section>
+				<h3>Java EE 7 APIs</h3>
+				https://docs.oracle.com/javaee/7/tutorial/overview007.htm
+			</section>
+		</section>
+		<section>
+			Differentiate between application component functionalities
+		</section>
+		<section>
+			<section>
+				Enterprise JavaBeans and CDI beans
+			</section>
+			<section>
+				<h3>What is an Enterprise Bean?</h3>
+				Enterprise Beans are Java EE components that implement EJB technology, runs in EJB container.
+				Server-side component that encapsulates the business logic of an application.
+				Helps simplify the development of large, distributed applications.
+				2 types:
+				<ul>
+					<li>Session Bean: performs task for a client, may implement a web service. Has 3 types: stateful, stateless and singleton.</li>
+					<li>Message-driven Bean: acts as a listener for a particular messaging type, such as the Java Message Service API. Allows Java EE app to process messages asynchronously.</li>
+				</ul>
+				Client (of enterprise bean) obtains a referenced instance of an enterprise bean by Dependency injection or JNDI lookup.
+			</section>
+			<section>
+				Lifecycles of Enterprise Bean
+			</section>
+		</section>
 	</div>
 </div>
 
 <script src="js/reveal.js"></script>
-<script src="plugin/markdown/marked.js"></script>
-<script src="plugin/markdown/markdown.js"></script>
+<!--<script src="plugin/markdown/marked.js"></script>-->
+<!--<script src="plugin/markdown/markdown.js"></script>-->
 
 <script>
 	Reveal.initialize({
