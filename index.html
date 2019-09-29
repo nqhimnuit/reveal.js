@@ -51,10 +51,8 @@
 			<h2>Agenda</h2>
 			<ol>
 				<li>Java EE 7 standard services</li>
-				<li>Differentiate between application component functionalities</li>
-				<li>Enterprise JavaBeans and CDI beans</li>
-				<li>Relationship between bean components, annotations, injections, and JNDI</li>
-				<li>Controlling EJB transactions</li>
+				<li>Contexts and Dependency Injection</li>
+				<li>Enterprise JavaBeans</li>
 				<li>Deploy Java EE application</li>
 			</ol>
 		</section>
@@ -169,22 +167,108 @@
 		</section>
 		<section>
 			<section>
-				Enterprise JavaBeans and CDI beans
+				<h3>Enterprise JavaBeans and CDI beans</h3>
+			</section>
+			<section>
+				<h3>Contexts and Dependency Injection</h3>
+				- Contexts: bind the lifecycle and interactions of stateful components to
+				well-defined but extensible lifecycle contexts.
+				- Dependency injection: inject components into an app in a typesafe way and to
+				choose at deployment time wich implementation of a particular interface to inject.
+				In addition, CDI provides services:
+				<ul>
+					<li>integration with Expression Language (EL)</li>
+					<li>decorate injected components</li>
+					<li>associate interceptors with components using typesafe interceptor bindings
+					</li>
+					<li>event-notification model</li>
+					<li>web conversation scope</li>
+					<li>complete Service Provider Interface allowing third-party frameworks to
+						integrata cleanly in Java EE 7 environment.
+					</li>
+				</ul>
+				A major theme of CDI is loose coupling.
+				CDI makes it possible to inject more kinds of objects:
+				<ul>
+					<li>(Almost) any Java class</li>
+					<li>Session beans</li>
+					<li>Java EE resources</li>
+					<li>Persistence contexts</li>
+					<li>Producer fields</li>
+					<li>Object returned by producer methods</li>
+					<li>Web service references</li>
+					<li>Remote enterprise bean references</li>
+				</ul>
+			</section>
+			<section style="font-size: x-large">
+				<h3>Contexts and Dependency Injection</h3>
+				Scopes:
+				<table>
+					<tr>
+						<th>Scope</th>
+						<th>Annotation</th>
+						<th>Duration</th>
+					</tr>
+					<tr>
+						<td>Request</td>
+						<td>@RequestScoped</td>
+						<td>User's interaction with a web app in a single HTTP request</td>
+					</tr>
+					<tr>
+						<td>Session</td>
+						<td>@SessionScoped</td>
+						<td>User's interaction with a web app in multiple HTTP requests</td>
+					</tr>
+					<tr>
+						<td>Application</td>
+						<td>@ApplicationScoped</td>
+						<td>Shared state across all users' interactions with a web app</td>
+					</tr>
+					<tr>
+						<td>Dependent</td>
+						<td>@Dependent</td>
+						<td>Default scope if none is specified. An object exists to serve exactly 1
+							client and has the same lifecycle as that client.
+						</td>
+					</tr>
+					<tr>
+						<td>Conversation</td>
+						<td>@ConversationScoped</td>
+						<td>User's interaction with a servlet, including JavaServer Faces
+							applications
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section>
 				<h3>What is an Enterprise Bean?</h3>
-				Enterprise Beans are Java EE components that implement EJB technology, runs in EJB container.
+				Enterprise Beans are Java EE components that implement EJB technology, runs in EJB
+				container.
 				Server-side component that encapsulates the business logic of an application.
 				Helps simplify the development of large, distributed applications.
 				2 types:
 				<ul>
-					<li>Session Bean: performs task for a client, may implement a web service. Has 3 types: stateful, stateless and singleton.</li>
-					<li>Message-driven Bean: acts as a listener for a particular messaging type, such as the Java Message Service API. Allows Java EE app to process messages asynchronously.</li>
+					<li>Session Bean: performs task for a client, may implement a web service. Has 3
+						types: stateful, stateless and singleton.
+					</li>
+					<li>Message-driven Bean: acts as a listener for a particular messaging type,
+						such as the Java Message Service API. Allows Java EE app to process messages
+						asynchronously.
+					</li>
 				</ul>
-				Client (of enterprise bean) obtains a referenced instance of an enterprise bean by Dependency injection or JNDI lookup.
+				Client (of enterprise bean) obtains a referenced instance of an enterprise bean by
+				Dependency injection or JNDI lookup.
 			</section>
 			<section>
-				Lifecycles of Enterprise Bean
+				<h3>Lifecycles of Enterprise Bean</h3>
+			</section>
+			<section>
+				<h3>Lifecycle of Stateful Session Bean</h3>
+				<img data-src="https://docs.oracle.com/javaee/7/tutorial/img/jeett_dt_021.png">
+			</section>
+			<section>
+				<h3>Lifecycle of Stateless and Singleton Session Bean</h3>
+				<img data-src="https://docs.oracle.com/javaee/7/tutorial/img/jeett_dt_022.png">
 			</section>
 		</section>
 	</div>
