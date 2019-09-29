@@ -48,122 +48,98 @@
 		<!--		<section data-markdown="java-ee-content/6-deploy-app.md"-->
 		<!--				data-separator-vertical="^\n\n"></section>-->
 		<section>
-			<h2>Agenda</h2>
+			<h1>Agenda</h1>
 			<ol>
 				<li>Java EE 7 standard services</li>
 				<li>Contexts and Dependency Injection</li>
 				<li>Enterprise JavaBeans</li>
-				<li>Deploy Java EE application</li>
+				<li>Web Services with JAX-RS</li>
+				<li>Packaging</li>
 			</ol>
 		</section>
 		<section>
 			<section>
-				<h2>Java EE 7 standard services</h2>
-				<ol>
-					<li>HTTP</li>
-					<li>HTTPS</li>
-					<li>Java Transaction API (JTA)</li>
-					<li>RMI-IIOP</li>
-					<li>Java IDL</li>
-					<li>JDBC API</li>
-					<li>Java Persistence API</li>
-					<li>Java Message Service (JMS)</li>
-					<li>Java Naming & Directory Interface (JNDI)</li>
-					<li>JavaMail</li>
-					<li>JavaBeans Activation Framework (JAF)</li>
-					<li>XML Processing</li>
-					<li>Java EE Connector Architecture</li>
-					<li>Security Services</li>
-					<li>Web Services</li>
-					<li>Concurrency Utilities</li>
-					<li>Batch</li>
-					<li>Management</li>
-					<li>Deployment</li>
-				</ol>
-
-				https://docs.oracle.com/javaee/7/firstcup/java-ee001.htm
+				<h1>Java EE 7 standard services</h1>
 			</section>
 			<section>
 				<h2>Java EE 7 standard services</h2>
-				<ol>
-					<li>HTTP and HTTPS</li>
-					- client-side: defined by java.net
-					- server-side: defined by Servlet, JSP and JSF interfaces
+				<table style="font-size: 22pt">
+					<tr><td>1. EJB</td><td>8. JAX-RS</td><td>15. JavaMail</td></tr>
+					<tr><td>2. Servlet</td><td>9. Managed Beans</td><td>16. JACC</td></tr>
+					<tr><td>3. JSF</td><td>10. CDI</td><td>17. JASPIC</td></tr>
+					<tr><td>4. JSP</td><td>11. Dependency Injection</td><td>18. WebSocket</td></tr>
+					<tr><td>5. JSTL</td><td>12. Bean Validation</td><td>19. JSON-P</td></tr>
+					<tr><td>6. JPA</td><td>13. Java Message Service</td><td>20. Concurrency Utilities</td></tr>
+					<tr><td>7. JTA</td><td>14. Java EE connector Architecture</td><td>21. Batch</td></tr>
+				</table>
+			</section>
+			<section>
+				<h2>Java EE 7 standard services</h2>
+				<ol style="font-size: 10pt">
+					<li>EJB</li>
+					To implement modules of Business logic.
 
-					<li>Java Transaction API (JTA)</li>
-					Consists 2 parts:
-					- Application-level: used by container and application to demarcate transaction
-					boundaries
-					- Interface between transaction manager and resource manager used at Java EE SPI
-					level
+					<li>Servlet</li>
+					Provide URL mapping and request handling capabilities in Java web app.
 
-					<li>RMI-IIOP</li>
-					<li>Java IDL</li>
+					<li>JSF</li>
+					User interface framework for web app.
 
-					<li>JDBC API</li>
-					API for connectivity with relational database system.
+					<li>JSP</li>
+					Lets you put snippets of servlet code.
 
-					<li>Java Persistence API</li>
-					For management of persistence and orm.
+					<li>JSTL</li>
+					JavaServer Pages Standard Tag Library encapsulates core functionalities for JSP apps.
 
-					<li>Java Message Service (JMS)</li>
-					Standard API for messaging, supports point-to-point messaging and
-					publish-subscribe model.
+					<li>JPA</li>
+					Java Persistence API is for management of persistence and orm.
 
-					<li>Java Naming & Directory Interface (JNDI)</li>
-					Standard API for naming and directory access.
+					<li>JTA</li>
+					Java Transaction API provides a standard interface for demarcating transactions.
 
-					<li>JavaMail</li>
-					Allows a component to send e-mail
+					<li>JAX-RS</li>
+					Java API for RESTful Web Services defines API to build web services according to the REST architectural.
+
+					<li>Managed Beans</li>
+					???
+
+					<li>CDI</li>
+					Allows developers to integrate different kinds of components in a loosely coupled but typesafe way.
+
+					<li>Dependency Injection</li>
+					Defines a standard set of annotations for use on injectable classes.
+
+					<li>Bean Validation</li>
+					Defines metadata model and API for validating data in JavaBeans components.
 
 					<li>JavaBeans Activation Framework (JAF)</li>
 					Framework for handling data in different MIME types.
 
-					<li>XML Processing</li>
-					Java API for XML Processing (JAXP) provides support for parsing XML.
-
 					<li>Java EE Connector Architecture</li>
+					???
 
-					<li>Security Services</li>
-					Java Authentication and Authorization Service (JAAS) enables services to
-					authenticate and enforce access controls upon users.
-					JACC
-					JASPIC
+					<li>JavaMail</li>
+					Allows a component to send e-mail
 
-					<li>Web Services</li>
-					JAX-WS, JAX-RPC support SOAP/HTTP protocol
-					Java API for JSON Processing (JSON-P) help processing JSON text.
-					Java API for WebSocket is standard API for creating WebSocket apps.
-					Java API for RESTful Web Services (JAX-RS) support REST services.
+					<li>JACC</li>
+					???
+
+					<li>JASPIC</li>
+					???
+
+					<li>WebSocket</li>
+					???
+
+					<li>JSON-P</li>
+					???
 
 					<li>Concurrency Utilities</li>
 					Standard API for providing asynchronous
 
 					<li>Batch</li>
-					Provide programming model for batch applications and a runtime for scheduling
-					and executing jobs.
-
-					<li>Management</li>
-					Manages Java EE servers using management enterprise bean.
-
-					<li>Deployment</li>
-					Defines a contract between deployment tools and Java EE products.
+					Provide programming model for batch applications and a runtime for scheduling and executing jobs.
 				</ol>
-
-				https://docs.oracle.com/javaee/7/firstcup/java-ee001.htm
 			</section>
-			<section>
-				<h3>Java EE 7 containers</h3>
-				https://docs.oracle.com/javaee/7/firstcup/java-ee002.htm
-				https://docs.oracle.com/javaee/7/tutorial/overview004.htm
-			</section>
-			<section>
-				<h3>Java EE 7 APIs</h3>
-				https://docs.oracle.com/javaee/7/tutorial/overview007.htm
-			</section>
-		</section>
-		<section>
-			Differentiate between application component functionalities
 		</section>
 		<section>
 			<section>
