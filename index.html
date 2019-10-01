@@ -27,26 +27,6 @@
 <body>
 <div class="reveal">
 	<div class="slides">
-		<!--		<section style="text-align:left;font-size: xx-large;"-->
-		<!--				data-markdown="java-ee-content/0-agenda.md"></section>-->
-
-		<!--		<section data-markdown="java-ee-content/1-java-ee-overview.md"-->
-		<!--				data-separator-vertical="^\n\n"></section>-->
-
-		<!--		<section data-markdown="java-ee-content/2-app-component-funcs.md"-->
-		<!--				data-separator-vertical="^\n\n"></section>-->
-
-		<!--		<section data-markdown="java-ee-content/3-ejb-cdi.md"-->
-		<!--				data-separator-vertical="^\n\n"></section>-->
-
-		<!--		<section data-markdown="java-ee-content/4-bean-components.md"-->
-		<!--				data-separator-vertical="^\n\n"></section>-->
-
-		<!--		<section data-markdown="java-ee-content/5-ejb-transactions.md"-->
-		<!--				data-separator-vertical="^\n\n"></section>-->
-
-		<!--		<section data-markdown="java-ee-content/6-deploy-app.md"-->
-		<!--				data-separator-vertical="^\n\n"></section>-->
 		<section>
 			<h1>Agenda</h1>
 			<ol>
@@ -64,18 +44,46 @@
 			<section>
 				<h2>Java EE 7 standard services</h2>
 				<table style="font-size: 22pt">
-					<tr><td>1. EJB</td><td>8. JAX-RS</td><td>15. JavaMail</td></tr>
-					<tr><td>2. Servlet</td><td>9. Managed Beans</td><td>16. JACC</td></tr>
-					<tr><td>3. JSF</td><td>10. CDI</td><td>17. JASPIC</td></tr>
-					<tr><td>4. JSP</td><td>11. Dependency Injection</td><td>18. WebSocket</td></tr>
-					<tr><td>5. JSTL</td><td>12. Bean Validation</td><td>19. JSON-P</td></tr>
-					<tr><td>6. JPA</td><td>13. Java Message Service</td><td>20. Concurrency Utilities</td></tr>
-					<tr><td>7. JTA</td><td>14. Java EE connector Architecture</td><td>21. Batch</td></tr>
+					<tr>
+						<td>1. EJB</td>
+						<td>8. JAX-RS</td>
+						<td>15. JavaMail</td>
+					</tr>
+					<tr>
+						<td>2. Servlet</td>
+						<td>9. Managed Beans</td>
+						<td>16. JACC</td>
+					</tr>
+					<tr>
+						<td>3. JSF</td>
+						<td>10. CDI</td>
+						<td>17. JASPIC</td>
+					</tr>
+					<tr>
+						<td>4. JSP</td>
+						<td>11. Dependency Injection</td>
+						<td>18. WebSocket</td>
+					</tr>
+					<tr>
+						<td>5. JSTL</td>
+						<td>12. Bean Validation</td>
+						<td>19. JSON-P</td>
+					</tr>
+					<tr>
+						<td>6. JPA</td>
+						<td>13. Java Message Service</td>
+						<td>20. Concurrency Utilities</td>
+					</tr>
+					<tr>
+						<td>7. JTA</td>
+						<td>14. Java EE connector Architecture</td>
+						<td>21. Batch</td>
+					</tr>
 				</table>
 			</section>
 			<section>
 				<h2>Java EE 7 standard services</h2>
-				<ol style="font-size: 10pt">
+				<ol style="font-size: 9pt">
 					<li>EJB</li>
 					To implement modules of Business logic.
 
@@ -89,22 +97,27 @@
 					Lets you put snippets of servlet code.
 
 					<li>JSTL</li>
-					JavaServer Pages Standard Tag Library encapsulates core functionalities for JSP apps.
+					JavaServer Pages Standard Tag Library encapsulates core functionalities for
+					JSP apps.
 
 					<li>JPA</li>
 					Java Persistence API is for management of persistence and orm.
 
 					<li>JTA</li>
-					Java Transaction API provides a standard interface for demarcating transactions.
+					Java Transaction API provides a standard interface for demarcating
+					transactions.
 
 					<li>JAX-RS</li>
-					Java API for RESTful Web Services defines API to build web services according to the REST architectural.
+					Java API for RESTful Web Services defines API to build web services
+					according to the REST architectural.
 
 					<li>Managed Beans</li>
-					???
+					Support a small set of basic services, such as resource injection, lifecycle
+					callbacks, and interceptors
 
 					<li>CDI</li>
-					Allows developers to integrate different kinds of components in a loosely coupled but typesafe way.
+					Allows developers to integrate different kinds of components in a loosely
+					coupled but typesafe way.
 
 					<li>Dependency Injection</li>
 					Defines a standard set of annotations for use on injectable classes.
@@ -116,43 +129,62 @@
 					Framework for handling data in different MIME types.
 
 					<li>Java EE Connector Architecture</li>
-					???
+					To create resource adapters that support access to enterprise information
+					systems that can be plugged in to any Java EE product.
 
 					<li>JavaMail</li>
 					Allows a component to send e-mail
 
 					<li>JACC</li>
-					???
+					Defines a contract between a Java EE application server and an authorization
+					policy provider
 
 					<li>JASPIC</li>
-					???
+					Defines a service provider interface by which authentication providers that
+					implement message authentication mechanisms
+					may be integrated in client or server message-processing containers or
+					runtimes.
 
 					<li>WebSocket</li>
-					???
+					Enables Java EE applications to create endpoints using annotations that
+					specify the configuration parameters
+					of the endpoint and designate its lifecycle callback methods
 
 					<li>JSON-P</li>
-					???
+					Enables Java EE applications to parse, transform, and query JSON data using
+					the object model or the streaming model
 
 					<li>Concurrency Utilities</li>
 					Standard API for providing asynchronous
 
 					<li>Batch</li>
-					Provide programming model for batch applications and a runtime for scheduling and executing jobs.
+					Provide programming model for batch applications and a runtime for
+					scheduling and executing jobs.
 				</ol>
 			</section>
 		</section>
 		<section>
 			<section>
-				<h3>Enterprise JavaBeans and CDI beans</h3>
+				<h2>CDI beans and Enterprise JavaBeans</h2>
 			</section>
 			<section>
-				<h3>Contexts and Dependency Injection</h3>
-				- Contexts: bind the lifecycle and interactions of stateful components to
-				well-defined but extensible lifecycle contexts.
-				- Dependency injection: inject components into an app in a typesafe way and to
-				choose at deployment time wich implementation of a particular interface to inject.
-				In addition, CDI provides services:
+				<h3>Contexts and Dependency Injection (CDI)</h3>
 				<ul>
+					<li><b style="color: #a6e22e">Contexts:</b> bind the lifecycle and interactions
+						of stateful components to
+						well-defined but extensible lifecycle contexts.
+					</li>
+					<li><b style="color: #a6e22e">Dependency injection:</b> inject components into
+						an app in a typesafe way and to
+						choose at deployment time wich implementation of a particular interface to
+						inject.
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Contexts and Dependency Injection (CDI)</h3>
+				<p style="text-align: left">CDI provides services:</p>
+				<ul style="font-size: 22pt">
 					<li>integration with Expression Language (EL)</li>
 					<li>decorate injected components</li>
 					<li>associate interceptors with components using typesafe interceptor bindings
@@ -163,9 +195,12 @@
 						integrata cleanly in Java EE 7 environment.
 					</li>
 				</ul>
-				A major theme of CDI is loose coupling.
-				CDI makes it possible to inject more kinds of objects:
-				<ul>
+			</section>
+			<section>
+				<h3>Contexts and Dependency Injection (CDI)</h3>
+				<p style="text-align: left">A major theme of CDI is loose coupling.
+					CDI makes it possible to inject more kinds of objects:</p>
+				<ul style="font-size: 22pt">
 					<li>(Almost) any Java class</li>
 					<li>Session beans</li>
 					<li>Java EE resources</li>
@@ -178,7 +213,8 @@
 			</section>
 			<section style="font-size: x-large">
 				<h3>Contexts and Dependency Injection</h3>
-				Scopes:
+				<p style="text-align: left">To maintain state over the duration of user's
+					interaction with the application, we can provide scope to the bean.</p>
 				<table>
 					<tr>
 						<th>Scope</th>
@@ -217,11 +253,17 @@
 				</table>
 			</section>
 			<section>
-				<h3>What is an Enterprise Bean?</h3>
-				Enterprise Beans are Java EE components that implement EJB technology, runs in EJB
-				container.
-				Server-side component that encapsulates the business logic of an application.
-				Helps simplify the development of large, distributed applications.
+				<h2>Enterprise Bean</h2>
+				<ul>
+					<li>Enterprise Beans are Java EE components that implement EJB technology, run
+						in EJB container.
+					</li>
+					<li>Encapsulates the business logic of an application.</li>
+					<li>Helps simplify the development of large, distributed applications.</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Enterprise Bean</h2>
 				2 types:
 				<ul>
 					<li>Session Bean: performs task for a client, may implement a web service. Has 3
