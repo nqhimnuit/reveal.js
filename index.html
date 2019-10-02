@@ -1,29 +1,17 @@
 <!doctype html>
 <html>
+
 <head>
 	<meta charset="utf-8">
-	<!--	<meta name="viewport"-->
-	<!--			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
 
 	<title>Java EE Architecture</title>
 
-	<!--	<link rel="stylesheet" href="css/reset.css">-->
 	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/app.css">
 	<link rel="stylesheet" href="css/theme/black.css">
-
-	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/monokai.css">
-
-	<!-- Printing and PDF exports -->
-	<!--	<script>-->
-	<!--		var link = document.createElement('link');-->
-	<!--		link.rel = 'stylesheet';-->
-	<!--		link.type = 'text/css';-->
-	<!--		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' :-->
-	<!--			'css/print/paper.css';-->
-	<!--		document.getElementsByTagName('head')[0].appendChild(link);-->
-	<!--	</script>-->
 </head>
+
 <body>
 <div class="reveal">
 	<div class="slides">
@@ -165,10 +153,10 @@
 		</section>
 		<section>
 			<section>
-				<h2>CDI beans and Enterprise JavaBeans</h2>
+				<h1>Contexts and Dependency Injection</h1>
 			</section>
 			<section>
-				<h3>Contexts and Dependency Injection (CDI)</h3>
+				<h2>Contexts and Dependency Injection (CDI)</h2>
 				<ul>
 					<li><b style="color: #a6e22e">Contexts:</b> bind the lifecycle and interactions
 						of stateful components to
@@ -182,7 +170,7 @@
 				</ul>
 			</section>
 			<section>
-				<h3>Contexts and Dependency Injection (CDI)</h3>
+				<h2>Contexts and Dependency Injection (CDI)</h2>
 				<p style="text-align: left">CDI provides services:</p>
 				<ul style="font-size: 22pt">
 					<li>integration with Expression Language (EL)</li>
@@ -197,7 +185,7 @@
 				</ul>
 			</section>
 			<section>
-				<h3>Contexts and Dependency Injection (CDI)</h3>
+				<h2>Contexts and Dependency Injection (CDI)</h2>
 				<p style="text-align: left">A major theme of CDI is loose coupling.
 					CDI makes it possible to inject more kinds of objects:</p>
 				<ul style="font-size: 22pt">
@@ -212,7 +200,7 @@
 				</ul>
 			</section>
 			<section style="font-size: x-large">
-				<h3>Contexts and Dependency Injection</h3>
+				<h2>Contexts and Dependency Injection</h2>
 				<p style="text-align: left">To maintain state over the duration of user's
 					interaction with the application, we can provide scope to the bean.</p>
 				<table>
@@ -252,6 +240,11 @@
 					</tr>
 				</table>
 			</section>
+		</section>
+		<section>
+			<section>
+				<h1>Enterprise Bean</h1>
+			</section>
 			<section>
 				<h2>Enterprise Bean</h2>
 				<ul>
@@ -262,14 +255,16 @@
 					<li>Helps simplify the development of large, distributed applications.</li>
 				</ul>
 			</section>
-			<section>
+			<section style="width: 800pt;right: -86.667px;left: -86.667px;">
 				<h2>Enterprise Bean</h2>
-				2 types:
+				<p style="text-align: left">There are 2 types:</p>
 				<ul>
-					<li>Session Bean: performs task for a client, may implement a web service. Has 3
+					<li><b style="color: #a6e22e">Session Bean:</b> performs task for a client, may
+						implement a web service. Has 3
 						types: stateful, stateless and singleton.
 					</li>
-					<li>Message-driven Bean: acts as a listener for a particular messaging type,
+					<li><b style="color: #a6e22e">Message-driven Bean:</b> acts as a listener for a
+						particular messaging type,
 						such as the Java Message Service API. Allows Java EE app to process messages
 						asynchronously.
 					</li>
@@ -278,14 +273,14 @@
 				Dependency injection or JNDI lookup.
 			</section>
 			<section>
-				<h3>Lifecycles of Enterprise Bean</h3>
+				<h2>Lifecycles of Enterprise Bean</h2>
 			</section>
 			<section>
-				<h3>Lifecycle of Stateful Session Bean</h3>
+				<h2>Lifecycle of Stateful Session Bean</h2>
 				<img data-src="https://docs.oracle.com/javaee/7/tutorial/img/jeett_dt_021.png">
 			</section>
 			<section>
-				<h3>Lifecycle of Stateless and Singleton Session Bean</h3>
+				<h2>Lifecycle of Stateless and Singleton Session Bean</h2>
 				<img data-src="https://docs.oracle.com/javaee/7/tutorial/img/jeett_dt_022.png">
 			</section>
 		</section>
@@ -307,4 +302,5 @@
 	});
 </script>
 </body>
+
 </html>
