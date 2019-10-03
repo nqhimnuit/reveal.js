@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
@@ -7,7 +7,6 @@
 	<title>Java EE Architecture</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
-	<link rel="stylesheet" href="css/app.css">
 	<link rel="stylesheet" href="css/theme/black.css">
 	<link rel="stylesheet" href="lib/css/monokai.css">
 </head>
@@ -156,16 +155,34 @@
 				<h1>Contexts and Dependency Injection</h1>
 			</section>
 			<section>
+				<h2>Contexts and Dependency Injection</h2>
+				<pre>
+					<code data-trim data-noescape style="font-size: 10pt">
+						public class EntityServiceFactory {
+							private SetupService setupService;
+							private SetupStateService setupStateService;
+							private ResourceServerService resourceServerService;
+							private ResourceServerStateService resourceServerStateService;
+							private ClientService clientService;
+							private ClientStateService clientStateService;
+							private RefreshTokenService refreshTokenService;
+							private PersistedConsentService persistedConsentService;
+
+						// ...
+						}
+					</code>
+				</pre>
+				<p style="font-size: 28pt">How can we use these services and their dependencies?</p>
+			</section>
+			<section>
 				<h2>Contexts and Dependency Injection (CDI)</h2>
 				<ul>
 					<li><b style="color: #a6e22e">Contexts:</b> bind the lifecycle and interactions
-						of stateful components to
-						well-defined but extensible lifecycle contexts.
+						of stateful components to well-defined but extensible lifecycle contexts.
 					</li>
 					<li><b style="color: #a6e22e">Dependency injection:</b> inject components into
-						an app in a typesafe way and to
-						choose at deployment time wich implementation of a particular interface to
-						inject.
+						an app in a typesafe way and to choose at deployment time which
+						implementation of a particular interface to inject.
 					</li>
 				</ul>
 			</section>
