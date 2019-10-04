@@ -277,8 +277,7 @@
 				<p style="text-align: left">There are 2 types:</p>
 				<ul>
 					<li><b style="color: #a6e22e">Session Bean:</b> performs task for a client, may
-						implement a web service. Has 3
-						types: stateful, stateless and singleton.
+						implement a web service. Has 3 types: stateful, stateless and singleton.
 					</li>
 					<li><b style="color: #a6e22e">Message-driven Bean:</b> acts as a listener for a
 						particular messaging type,
@@ -288,6 +287,44 @@
 				</ul>
 				Client (of enterprise bean) obtains a referenced instance of an enterprise bean by
 				Dependency injection or JNDI lookup.
+			</section>
+			<section style="width: 800pt;right: -86.667px;left: -86.667px;">
+				<h2>Enterprise Bean</h2>
+				<table>
+					<tr>
+						<th>Type</th>
+						<th>Features</th>
+					</tr>
+					<tr>
+						<td>
+							Stateful
+						</td>
+						<td style="padding-left: 0; padding-right: 0;">
+							<ul style="margin-left: 0;">
+								<li>maintains conversational state for a specific client</li>
+								<li>can NOT implement a web service</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>Stateless</td>
+						<td style="padding-left: 0; padding-right: 0;">
+							<ul style="margin-left: 0;">
+								<li>does not maintain a conversational state with the client</li>
+								<li>can implement a web service</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td>Singleton</td>
+						<td style="padding-left: 0; padding-right: 0;">
+							<ul style="margin-left: 0;">
+								<li>similar to stateless session beans, but:</li>
+								<li>only one singleton session bean per app</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section>
 				<h2>Lifecycles of Enterprise Bean</h2>
