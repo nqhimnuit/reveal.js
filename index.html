@@ -108,6 +108,35 @@
 			</section>
 			<section>
 				<h4>Contexts and Dependency Injection (CDI)</h4>
+				<p class="fragment fade-up" style="font-size: 28pt">By using dependencies
+					injection</p>
+				<pre class="fragment fade-up">
+					<code data-trim data-noescape style="font-size: 10pt">
+						public class EntityServiceFactory {
+							@Inject
+							private SetupService setupService;
+							@Inject
+							private SetupStateService setupStateService;
+							@Inject
+							private ResourceServerService resourceServerService;
+							@Inject
+							private ResourceServerStateService resourceServerStateService;
+							@Inject
+							private ClientService clientService;
+							@Inject
+							private ClientStateService clientStateService;
+							@Inject
+							private RefreshTokenService refreshTokenService;
+							@Inject
+							private PersistedConsentService persistedConsentService;
+
+						// ...
+						}
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h4>Contexts and Dependency Injection (CDI)</h4>
 				<ul>
 					<li><em style="color: #00a663">Contexts:</em> bind the lifecycle and
 						interactions
@@ -437,8 +466,7 @@
 		hash: true,
 		hideCursorTime: 2000,
 		dependencies: [
-			{src: 'plugin/markdown/marked.js'},
-			{src: 'plugin/markdown/markdown.js'},
+			{src: 'plugin/zoom-js/zoom.js', async: true},
 			{src: 'plugin/notes/notes.js', async: true},
 			{src: 'plugin/highlight/highlight.js', async: true}
 		]
