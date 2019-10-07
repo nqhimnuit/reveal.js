@@ -158,28 +158,45 @@
 					kinds of objects:<br><br>
 					<li>(Almost) any Java class</li>
 					<li>Session beans</li>
-					<li>Java EE resources</li>
 					<li>Persistence contexts</li>
 					<li>Producer fields</li>
 					<li>Object returned by producer methods</li>
-					<li>Web service references</li>
 					<li>Remote enterprise bean references</li>
+					<li>...</li>
 				</ul>
+				<aside class="notes">
+					<ul>
+						<li>A producer method generates an object that can then be injected</li>
+						<li>A producer field is a simpler alternative to a producer method; it is a
+							field of a bean that generates an object. It can be used instead of a
+							simple getter method.
+						</li>
+						<li>persistence context handles a set of entities which hold data to be
+							persisted in some persistence store
+						</li>
+					</ul>
+				</aside>
 			</section>
 			<section>
 				<h4>Contexts and Dependency Injection (CDI)</h4>
 				<p style="text-align: left">CDI provides services:</p>
 				<ul style="font-size: 22pt">
 					<li>integration with Expression Language (EL)</li>
-					<li>decorate injected components</li>
-					<li>associate interceptors with components using typesafe interceptor bindings
-					</li>
 					<li>event-notification model</li>
 					<li>web conversation scope</li>
 					<li>complete Service Provider Interface allowing 3rd-party frameworks to
 						integrate cleanly in Java EE 7 environment.
 					</li>
+					<li>associate interceptors with components using typesafe interceptor bindings</li>
+					<li>decorate injected components</li>
 				</ul>
+				<aside class="notes">
+					<ul>
+						<li>SPI: a feature for discovering and loading implementations matching a given interface</li>
+						<li>event-notification model: is a classic implementation of the Observer pattern</li>
+						<li>Conversation scope exists within developer-controlled boundaries that extend it across multiple requests for long-running conversations.</li>
+					</ul>
+				</aside>
 			</section>
 			<section style="font-size: x-large">
 				<h2>Contexts and Dependency Injection (CDI)</h2>
