@@ -68,6 +68,18 @@
 						<td>21. Batch</td>
 					</tr>
 				</table>
+				<aside class="notes">
+					<ul>
+						<li>Java EE is indeed an abstract specification. Anybody is open to develop
+							and provide a working implementation of the specification.
+						</li>
+						<li>distributed multitiered app: Client, Web, Business and Enterprise
+							information system (EIS)-tier.
+						</li>
+						<li>these APIs belongs to web and business tier in the java ee server.</li>
+						<li></li>
+					</ul>
+				</aside>
 			</section>
 		</section>
 		<section>
@@ -331,9 +343,9 @@
 				<h4>Web Services with JAX-RS</h4>
 				<p style="text-align: left">Basic setup for a RESTful services:</p>
 				<ol>
-					<li>base URI for all resource URIs specified by @Path annotations.</li>
-					<li>a relative URI path indicating where the Java class will be hosted.</li>
-					<li>Java method to process HTTP requests.</li>
+					<li>base URI for all resource URIs specified by @Path.</li>
+					<li>endpoint indicating where the Java class will be hosted.</li>
+					<li>java method to process HTTP requests.</li>
 					<li>extract parameters from HTTP request.</li>
 					<li>specify the media types the client is allowed to send so that server
 						resource can consume.
@@ -352,56 +364,43 @@
 			</section>
 			<section>
 				<h4>Packaging</h4>
+				<p style="text-align: left">For easily deploy application to server or
+					transfer applications between environments, all constituted the Java app files
+					are compressed and packaged into a single file:</p>
 				<ul>
-					<li>A Java EE application is packaged into a Java Archive (JAR) file or a
-						Web
-						Archive (WAR) file or an Enterprise Archive (EAR) file for deployment.
+					<li><em style="color: #00a663">Java Archive (JAR)</em> file.</li>
+					<li><em style="color: #00a663">Web Archive (WAR)</em> file.</li>
+					<li><em style="color: #00a663">Enterprise Archive (EAR)</em> file.</li>
+				</ul>
+				<aside class="notes">
+					<ul>
+						<li>JAR file has all the components required to make a self-contained
+							executable Java application, only requires a Java installation to
+							execute.
+						</li>
+						<li>WAR file contains the files of a web project. It can have servlet, JSP,
+							XML, HTML, XHTML, CSS and JavaScript files, requires a Java EE Web
+							Profile-compliant application server to run.
+						</li>
+						<li>EAR is a Java EE file that packages one or more modules into a single
+							archive to deploy them onto an application server.
+						</li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h4>Packaging</h4>
+				The biggest difference between JAR, WAR and EAR files is the fact that they
+				are targeted toward different environments:
+				<ul>
+					<li>EAR file requires a <em style="color: #00a663">fully Java EE compliant
+						application server</em> (e.g. WebSphere, JBoss...) to run.
 					</li>
-					<li>EJB-JAR: EJB modules, which contain class files for enterprise beans
-						and,
-						optionally,
-						an EJB deployment descriptor.
+					<li>WAR file only requires a Java EE <em style="color: #00a663">Web
+						Profile-compliant application server</em> to run.
 					</li>
-					<li>Application client modules, which contain class files and, optionally,
-						an
-						application client deployment descriptor. Application client modules are
-						packaged as JAR files.
+					<li>JAR file only requires a <em style="color: #00a663">Java installation</em>.
 					</li>
-					<li>Web modules, which contain servlet class files, web files, supporting
-						class
-						files, GIF and HTML files, and, optionally, a web application deployment
-						descriptor. Web modules are packaged as WAR files.
-					</li>
-					<li>Resource adapter modules, which contain all Java interfaces, classes,
-						native
-						libraries, and, optionally, a resource adapter deployment descriptor.
-						Together, these implement the Connector architecture for a particular
-						EIS.
-						Resource adapter modules are packaged as RAR files.
-					</li>
-					<li>The biggest difference between JAR, WAR and EAR files is the fact that
-						they
-						are targeted toward different environments. An EAR file requires a fully
-						Java EE compliant application server (e.g. WebSphere, JBoss...) to run.
-						A
-						WAR
-						file only requires a Java EE Web Profile-compliant application server to
-						run, and a JAR file only requires a Java installation.
-					</li>
-					<li>A JAR file has all the components required to make a self-contained
-						executable Java application, only requires a Java installation to
-						execute.
-					</li>
-					<li>A WAR file contains the files of a web project. It can have servlet,
-						JSP,
-						XML, HTML, XHTML, CSS and JavaScript files, requires a Java EE Web
-						Profile-compliant application server to run.
-					</li>
-					<li>EAR is a Java EE file that packages one or more modules into a single
-						archive to deploy them onto an application server.
-					</li>
-					<li></li>
-					<li></li>
 				</ul>
 			</section>
 			<section>
