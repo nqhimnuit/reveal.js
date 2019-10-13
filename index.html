@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Java EE Architecture</title>
+	<title>JavaServer Faces</title>
 
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css">
@@ -12,487 +12,62 @@
 </head>
 
 <body>
-<div class="reveal">
-	<div class="slides">
-		<section>
-			<h1>Agenda</h1>
-			<ol>
-				<li>Java EE 7 standard services</li>
-				<li>Contexts and Dependency Injection</li>
-				<li>Enterprise JavaBeans</li>
-				<li>JavaBean Validation</li>
-				<li>Web Services with JAX-RS</li>
-				<li>Packaging</li>
-			</ol>
-		</section>
-		<section>
+	<div class="reveal">
+		<div class="slides">
 			<section>
-				<h2>Java EE 7 standard services</h2>
-			</section>
-			<section>
-				<h4>Java EE 7 standard services</h4>
-				<table style="font-size: 22pt">
-					<tr>
-						<td>1. EJB</td>
-						<td>8. JAX-RS</td>
-						<td>15. JavaMail</td>
-					</tr>
-					<tr>
-						<td>2. Servlet</td>
-						<td>9. Managed Beans</td>
-						<td>16. JACC</td>
-					</tr>
-					<tr>
-						<td>3. JSF</td>
-						<td>10. CDI</td>
-						<td>17. JASPIC</td>
-					</tr>
-					<tr>
-						<td>4. JSP</td>
-						<td>11. Dependency Injection</td>
-						<td>18. WebSocket</td>
-					</tr>
-					<tr>
-						<td>5. JSTL</td>
-						<td>12. Bean Validation</td>
-						<td>19. JSON-P</td>
-					</tr>
-					<tr>
-						<td>6. JPA</td>
-						<td>13. Java Message Service</td>
-						<td>20. Concurrency Utilities</td>
-					</tr>
-					<tr>
-						<td>7. JTA</td>
-						<td>14. Java EE connector Architecture</td>
-						<td>21. Batch</td>
-					</tr>
-				</table>
-				<aside class="notes">
-					<ul>
-						<li>Java EE is abstract specification. Anybody is open to develop
-							and provide a working implementation of the specification.
-						</li>
-						<li>distributed multitiered app: Client, Web, Business and Enterprise
-							information system (EIS)-tier.
-						</li>
-						<li>these APIs belongs to web and business tier in the java ee server.</li>
-					</ul>
-				</aside>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Contexts and Dependency Injection</h2>
-			</section>
-			<section>
-				<h4>Contexts and Dependency Injection (CDI)</h4>
-				<pre>
-					<code data-trim data-noescape style="font-size: 10pt">
-						public class EntityServiceFactory {
-							private SetupService setupService;
-							private SetupStateService setupStateService;
-							private ResourceServerService resourceServerService;
-							private ResourceServerStateService resourceServerStateService;
-							private ClientService clientService;
-							private ClientStateService clientStateService;
-							private RefreshTokenService refreshTokenService;
-							private PersistedConsentService persistedConsentService;
-
-						// ...
-						}
-					</code>
-				</pre>
-				<p style="font-size: 28pt">How can we use these services and their dependencies?</p>
-			</section>
-			<section>
-				<h4>Contexts and Dependency Injection (CDI)</h4>
-				<p class="fragment fade-up" style="font-size: 28pt">By using dependencies
-					injection</p>
-				<pre class="fragment fade-up">
-					<code data-trim data-noescape style="font-size: 10pt">
-						public class EntityServiceFactory {
-							@Inject
-							private SetupService setupService;
-							@Inject
-							private SetupStateService setupStateService;
-							@Inject
-							private ResourceServerService resourceServerService;
-							@Inject
-							private ResourceServerStateService resourceServerStateService;
-							@Inject
-							private ClientService clientService;
-							@Inject
-							private ClientStateService clientStateService;
-							@Inject
-							private RefreshTokenService refreshTokenService;
-							@Inject
-							private PersistedConsentService persistedConsentService;
-
-						// ...
-						}
-					</code>
-				</pre>
-			</section>
-			<section>
-				<h4>Contexts and Dependency Injection (CDI)</h4>
-				<ul>
-					<li><em style="color: #00a663">Contexts:</em> bind the lifecycle and
-						interactions
-						of stateful components to well-defined but extensible lifecycle contexts.
-					</li>
-					<li><em style="color: #00a663">Dependency injection:</em> inject components into
-						an app in a typesafe way and to choose at deployment time which
-						implementation of a particular interface to inject.
-					</li>
-				</ul>
-				<aside class="notes">
-					context is like a place for a collection of beans having same scope.
-				</aside>
-			</section>
-			<section>
-				<h4>Contexts and Dependency Injection (CDI)</h4>
-				<ul style="font-size: 22pt">
-					A major theme of CDI is loose coupling. CDI makes it possible to inject more
-					kinds of objects:<br><br>
-					<li>(Almost) any Java class</li>
-					<li>Session beans</li>
-					<li>Persistence contexts</li>
-					<li>Producer fields</li>
-					<li>Object returned by producer methods</li>
-					<li>Remote enterprise bean references</li>
-					<li>...</li>
-				</ul>
-				<aside class="notes">
-					<ul>
-						<li>A producer method generates an object that can then be injected</li>
-						<li>A producer field is a simpler alternative to a producer method; it is a
-							field of a bean that generates an object. It can be used instead of a
-							simple getter method.
-						</li>
-						<li>persistence context handles a set of entities which hold data to be
-							persisted in some persistence store
-						</li>
-					</ul>
-				</aside>
-			</section>
-			<section>
-				<h4>Contexts and Dependency Injection (CDI)</h4>
-				<p style="text-align: left">CDI provides services:</p>
-				<ul style="font-size: 22pt">
-					<li>integration with Expression Language (EL)</li>
-					<li>event-notification model</li>
-					<li>web conversation scope</li>
-					<li>complete Service Provider Interface allowing 3rd-party frameworks to
-						integrate cleanly in Java EE 7 environment.
-					</li>
-					<li>...</li>
-				</ul>
-				<aside class="notes">
-					<ul>
-						<li>SPI: a feature for discovering and loading implementations matching a given interface</li>
-						<li>event-notification model: is a classic implementation of the Observer pattern</li>
-						<li>Conversation scope exists within developer-controlled boundaries that extend it across multiple requests for long-running conversations.</li>
-					</ul>
-				</aside>
-			</section>
-			<section style="font-size: x-large">
-				<h2>Contexts and Dependency Injection (CDI)</h2>
-				<p style="text-align: left">To maintain state over the duration of user's
-					interaction with the application, we can provide scope to the bean.</p>
-				<table>
-					<tr>
-						<th>Scope</th>
-						<th>Annotation</th>
-						<th>Duration</th>
-					</tr>
-					<tr>
-						<td>Request</td>
-						<td style="font-weight: bold">@RequestScoped</td>
-						<td>User's interaction with a web app in a single HTTP request</td>
-					</tr>
-					<tr>
-						<td>Session</td>
-						<td style="font-weight: bold">@SessionScoped</td>
-						<td>User's interaction with a web app in multiple HTTP requests</td>
-					</tr>
-					<tr>
-						<td>Application</td>
-						<td style="font-weight: bold">@ApplicationScoped</td>
-						<td>Shared state across all users' interactions with a web app</td>
-					</tr>
-					<tr>
-						<td>Dependent</td>
-						<td style="font-weight: bold">@Dependent</td>
-						<td>Default scope if none is specified. An object exists to serve exactly 1
-							client and has the same lifecycle as that client.
-						</td>
-					</tr>
-					<tr>
-						<td>Conversation</td>
-						<td style="font-weight: bold">@ConversationScoped</td>
-						<td>User's interaction with a servlet, including JavaServer Faces
-							applications
-						</td>
-					</tr>
-				</table>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Enterprise Bean</h2>
-			</section>
-			<section>
-				<h4>Enterprise Bean</h4>
-				<ul>
-					<li>Enterprise Beans are Java EE components that implement EJB technology, run
-						in EJB container.
-					</li>
-					<li>Encapsulates the business logic of an application.</li>
-					<li>Helps simplify the development of large, distributed applications.</li>
-				</ul>
-				<aside class="notes">
-					What<br>
-					How<br>
-					Why
-				</aside>
-			</section>
-			<section>
-				<h4>Enterprise Bean</h4>
-				<ul>
-					<li><b style="color: #00a663">Session Bean:</b> performs task for a client, may
-						implement a web service. Has 3 types:
-						<em style="color: #7fd2b1">stateful</em>,
-						<em style="color: #7fd2b1">stateless</em> and
-						<em style="color: #7fd2b1">singleton.</em>
-					</li>
-					<li><b style="color: #00a663">Message-driven Bean:</b> acts as a listener for a
-						particular messaging type,
-						such as the Java Message Service API. Allows Java EE app to process messages
-						asynchronously.
-					</li>
-				</ul>
-
-				<span class="fragment fade-up"><br><br>How does a Client obtains a referenced
-					<br>instance of an enterprise bean?
-				</span>
-				<span class="fragment fade-up">
-					<br><br>By using <em style="color: #00a663">Dependency injection</em> or
-					<em style="color: #00a663">JNDI</em> lookup.</span>
-			</section>
-			<section>
-				<h4>Enterprise Bean</h4>
-				<table>
-					<tr>
-						<th>Type</th>
-						<th>Features</th>
-					</tr>
-					<tr>
-						<td>
-							Stateful
-						</td>
-						<td style="padding-left: 0; padding-right: 0;">
-							<ul style="margin-left: 0;">
-								<li>maintains conversational state for a specific client</li>
-								<li>can NOT implement a web service</li>
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td>Stateless</td>
-						<td style="padding-left: 0; padding-right: 0;">
-							<ul style="margin-left: 0;">
-								<li>does not maintain a conversational state with the client</li>
-								<li>can implement a web service</li>
-							</ul>
-						</td>
-					</tr>
-					<tr>
-						<td>Singleton</td>
-						<td style="padding-left: 0; padding-right: 0;">
-							<ul style="margin-left: 0;">
-								<li>similar to stateless session beans, but:</li>
-								<li>only one singleton session bean per app</li>
-							</ul>
-						</td>
-					</tr>
-				</table>
-			</section>
-			<section>
-				<h2>Lifecycles of Enterprise Bean</h2>
-				<aside class="notes">
-					An enterprise bean goes through various stages during its lifecycle. Each type of enterprise bean has a different lifecycle.
-				</aside>
-			</section>
-			<section>
-				<h4>Lifecycle of Stateful Session Bean</h4>
-				<img data-src="https://docs.oracle.com/javaee/7/tutorial/img/jeett_dt_021.png">
-			</section>
-			<section>
-				<h4>Lifecycle of Stateless and Singleton Session Bean</h4>
-				<img data-src="https://docs.oracle.com/javaee/7/tutorial/img/jeett_dt_022.png">
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Bean Validation</h2>
-			</section>
-			<section>
-				<h4>Bean Validation</h4>
-				<ul>
-					<li>Validating input received from the user to
-						<em style="color: #00a663">maintain data integrity</em>
-						is an important part of application logic.
-					</li>
-					<li>Provides a facility for validating objects, object members, methods, and
-						constructors.
-					</li>
-					<li>Allow developers to easily define and enforce validation constraints.</li>
-				</ul>
-				<aside class="notes">
-					<ul>
-						<li>what is bean validation?</li>
-						<li>with that in mind, bean validation provides?</li>
-						<li>why we use?</li>
-					</ul>
-				</aside>
-			</section>
-			<section>
-				<h4>Bean Validation</h4>
-				Built-in validators:<br>
-				<iframe src="https://docs.oracle.com/javaee/7/tutorial/bean-validation001.htm#GKAGK"
-						style="width: 700px; height: 500px;">
-				</iframe>
-			</section>
-			<section style="text-align: left">
-				<h4 style="text-align: center">Bean Validation</h4>
-				<p style="font-size: 22pt">Custom validation:</p>
-				<p style="font-size: 18pt">
-					Provided nevisMeta project has entity id format:
-					<mark style="font-family: Courier,serif; background-color: #7fd2b1">
-						{entity_type}_{uuid}
-					</mark>
-					<br><br>
-					where <b style="font-family: Courier,serif">"entity_type" = {"Setup",
-					"SetupState",
-					"Client", "ClientState", "ResourceServer", "ResourceServerState"}</b>
-					<br><br>e.g:
-					<b style="font-family: Courier,serif">"Client_51AFCCB0179D498D89860BADEC10406F"</b>
-					<br><br>Create a bean validation to validate an entity id.
-				</p>
-				<aside class="notes">
-					DEMO!
-				</aside>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Web Services with JAX-RS</h2>
-			</section>
-			<section>
-				<h4>Web Services with JAX-RS</h4>
-				<p style="text-align: left">Basic setup for a RESTful services:</p>
+				<h1>Agenda</h1>
 				<ol>
-					<li>base URI for all resource URIs specified by @Path.</li>
-					<li>endpoint indicating where the Java class will be hosted.</li>
-					<li>java method to process HTTP requests.</li>
-					<li>extract parameters from HTTP request.</li>
-					<li>specify the media types the client is allowed to send so that server
-						resource can consume.
-					</li>
-					<li>specify the media types of representations a resource can produce and send
-						back to the client.
-					</li>
+					<li>JSF Overview</li>
+					<li>A Simple JSF Application</li>
+					<li>User Interface Component Model</li>
+					<li>Navigation Model</li>
+					<li>JSF lifecycle</li>
 				</ol>
-				<aside class="notes">helps developing REST architecture for Java EE applications.
-				</aside>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Packaging</h2>
 			</section>
 			<section>
-				<h4>Packaging</h4>
-				<p style="text-align: left">For easily deploy application to server or
-					transfer applications between environments, all constituted the Java app files
-					are compressed and packaged into a single file:</p>
-				<ul>
-					<li><em style="color: #00a663">Java Archive (JAR)</em> file.</li>
-					<li><em style="color: #00a663">Web Archive (WAR)</em> file.</li>
-					<li><em style="color: #00a663">Enterprise Archive (EAR)</em> file.</li>
-				</ul>
-				<aside class="notes">
+				<section>
+					<h2>JSF Overview</h2>
+				</section>
+				<section>
+					<h3>JSF Overview</h3>
 					<ul>
-						<li>JAR file has all the components required to make a self-contained
-							executable Java application, only requires a Java installation to
-							execute.
-						</li>
-						<li>WAR file contains the files of a web project. It can have servlet, JSP,
-							XML, HTML, XHTML, CSS and JavaScript files, requires a Java EE Web
-							Profile-compliant application server to run.
-						</li>
-						<li>EAR is a Java EE file that packages one or more modules into a single
-							archive to deploy them onto an application server.
-						</li>
+						<li>A Java-based web framework for user interface, part of Java EE standard.</li>
+						<li>A typical JavaServer Faces application includes</li>
+						<ul>
+							<li>web pages</li>
+							<li>tags & components in the web page</li>
+							<li>managed beans</li>
+							<li>web deployment descriptor</li>
+							<li>application configuration resource (optional)</li>
+							<li>custom objects, tags (optional)</li>
+						</ul>
 					</ul>
-				</aside>
+				</section>
 			</section>
 			<section>
-				<h4>Packaging</h4>
-				The biggest difference between JAR, WAR and EAR files is the fact that they
-				are targeted toward different environments:
-				<ul>
-					<li>EAR file requires a <em style="color: #00a663">fully Java EE compliant
-						application server</em> (e.g. WebSphere, JBoss...) to run.
-					</li>
-					<li>WAR file only requires a Java EE <em style="color: #00a663">Web
-						Profile-compliant application server</em> to run.
-					</li>
-					<li>JAR file only requires a <em style="color: #00a663">Java installation</em>.
-					</li>
-				</ul>
+				<h1>Q&A</h1>
 			</section>
 			<section>
-				<h4>Packaging</h4>
-				Structure of an Enterprise Bean JAR:<br>
-				<img data-src="https://docs.oracle.com/javaee/7/tutorial/img/jeett_dt_011.png">
+				<h1>Thank you!</h1>
 			</section>
-			<section>
-				<h4>Packaging</h4>
-				Structure of an Web Archive:<br>
-				<img data-src="https://docs.oracle.com/javaee/7/tutorial/img/jeett_dt_012.png">
-			</section>
-			<section>
-				<h4>Packaging</h4>
-				Structure of an Enterprise Application Archive:<br>
-				<img data-src="https://docs.oracle.com/javaee/7/tutorial/img/jeett_dt_010.png">
-			</section>
-		</section>
-		<section>
-			<h1>Q&A</h1>
-		</section>
-		<section>
-			<h1>Thank you!</h1>
-		</section>
+		</div>
 	</div>
-</div>
 
-<script src="js/reveal.js"></script>
+	<script src="js/reveal.js"></script>
 
-<script>
-	Reveal.initialize({
-		width: 1200,
-		height: 700,
-		hash: true,
-		hideCursorTime: 2000,
-		dependencies: [
-			{src: 'plugin/zoom-js/zoom.js', async: true},
-			{src: 'plugin/notes/notes.js', async: true},
-			{src: 'plugin/highlight/highlight.js', async: true}
-		]
-	});
-</script>
+	<script>
+		Reveal.initialize({
+			width: 1200,
+			height: 700,
+			hash: true,
+			hideCursorTime: 2000,
+			dependencies: [
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
 </body>
 
 </html>
