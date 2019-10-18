@@ -19,8 +19,6 @@
 				<ol>
 					<li>JSF Overview</li>
 					<li>A Simple JSF Application</li>
-					<li>User Interface Component Model</li>
-					<li>Navigation Model</li>
 					<li>JSF lifecycle</li>
 				</ol>
 			</section>
@@ -33,14 +31,14 @@
 					<ul>
 						<li>A Java-based web framework for user interface, part of Java EE standard.</li>
 						<li>A typical JavaServer Faces application includes</li>
-						<ul>
+						<ol>
 							<li>web pages</li>
 							<li>tags & components in the web page</li>
 							<li>managed beans</li>
 							<li>web deployment descriptor</li>
 							<li>application configuration resource (optional)</li>
 							<li>custom objects, tags (optional)</li>
-						</ul>
+						</ol>
 						<li>Uses Facelets for view declaration language.</li>
 					</ul>
 				</section>
@@ -51,6 +49,23 @@
 				</section>
 				<section>
 					<h3>A Simple JSF Application</h3>
+					<ol>
+						<li>create a new web page using Facelets.</li>
+						<li>create managed beans</li>
+						<li>mapping FacesServlet instance</li>
+					</ol>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>JSF lifecycle</h2>
+				</section>
+				<section>
+					<h3>JSF lifecycle</h3>
+					The lifecycle of a JSF application:
+					- starts with the client makes a request for the web page.
+					- ends with the server responds with the page.
+					- consists of two main phases: Execute and Render.
 				</section>
 			</section>
 			<section>
