@@ -50,11 +50,64 @@
 				<section>
 					<h3>A Simple JSF Application</h3>
 					<ol>
-						<li>create a new web page using Facelets.</li>
-						<li>create managed beans</li>
-						<li>mapping FacesServlet instance</li>
+						<li>a web page (using Facelets)</li>
+						<li>a managed bean</li>
+						<li>FacesServlet mapping</li>
 					</ol>
 				</section>
+				<section>
+					<h3>A Simple JSF Application</h3>
+					web page with Facelets
+					<pre>
+						<code><h:form>
+	<div>
+		<h:outputLabel for="txtUsername" value="username: " />
+		<h:inputText id="txtUsername" value="#{loginController.username}" />
+	</div>
+	<div>
+		<h:outputLabel for="txtPassword" value="password: " />
+		<h:inputText id="txtPassword" value="#{loginController.password}" />
+	</div>
+	<h:commandButton id="btnSubmit" value="Submit" action="user-info" />
+	<h:link value="Go to user-info page" outcome="user-info.xhtml" />
+</h:form></code>
+</pre>
+
+				</section>
+				<section>
+					<h3>A Simple JSF Application</h3>
+					a Managed Bean
+					<pre><code>@Named
+@SessionScoped
+public class LoginController implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private String username;
+
+	private String password;
+
+	public void getUserInfo() {
+		LOG.info("Username = " + username +
+			" &&& Password = " + password);
+	}
+
+// getters & setters
+}</code></pre>
+				</section>
+				<section>
+						<h3>A Simple JSF Application</h3>
+						FacesServlet mapping
+						<pre><code><servlet>
+	<servlet-name>Faces Servlet</servlet-name>
+	<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>Faces Servlet</servlet-name>
+	<url-pattern>*.xhtml</url-pattern>
+</servlet-mapping></code></pre>
+					</section>
 			</section>
 			<section>
 				<section>
