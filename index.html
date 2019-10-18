@@ -96,9 +96,9 @@ public class LoginController implements Serializable {
 }</code></pre>
 				</section>
 				<section>
-						<h3>A Simple JSF Application</h3>
-						FacesServlet mapping
-						<pre><code><servlet>
+					<h3>A Simple JSF Application</h3>
+					FacesServlet mapping
+					<pre><code><servlet>
 	<servlet-name>Faces Servlet</servlet-name>
 	<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 </servlet>
@@ -107,7 +107,7 @@ public class LoginController implements Serializable {
 	<servlet-name>Faces Servlet</servlet-name>
 	<url-pattern>*.xhtml</url-pattern>
 </servlet-mapping></code></pre>
-					</section>
+				</section>
 			</section>
 			<section>
 				<section>
@@ -115,10 +115,40 @@ public class LoginController implements Serializable {
 				</section>
 				<section>
 					<h3>JSF lifecycle</h3>
-					The lifecycle of a JSF application:
-					- starts with the client makes a request for the web page.
-					- ends with the server responds with the page.
-					- consists of two main phases: Execute and Render.
+					<div style="text-align: left;">
+						<h4>The lifecycle of a JSF application:</h4>
+						<ul>
+							<li>starts with the client makes a
+								<em style="color: #00a663">request</em> for the web page.</li>
+							<li>ends with the server <em style="color: #00a663">responds</em> with the page.</li>
+							<li>consists of two main phases:
+								<em style="color: #00a663">Execute</em> and
+								<em style="color: #00a663">Render</em>.</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h3>JSF lifecycle</h3>
+					<div style="text-align: left;">
+						Execute phase:
+						<ol>
+							<li>The application <em style="color: #00a663">view</em>
+								is built(*) or restored(**).</li>
+							<li><em style="color: #00a663">Apply</em> request parameter values</li>
+							<li><em style="color: #00a663">Conversions and validations</em>
+								are performed for component values.</li>
+							<li><em style="color: #00a663">Update</em>
+								Managed beans with component values.</li>
+							<li><em style="color: #00a663">Invoke</em> Application logic .</li>
+						</ol>
+						<br><br>
+						(*) For initial request.<br>
+						(**) For postback requests.
+					</div>
+				</section>
+				<section>
+					<h3>JSF lifecycle</h3>
+					In the Render phase, the requested view is rendered as a response to the client. Rendering is typically the process of generating output, such as HTML or XHTML, that can be read by the client, usually a browser.
 				</section>
 			</section>
 			<section>
