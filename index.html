@@ -169,7 +169,7 @@ public class LoginController implements Serializable {
 							<li>Store values of each component locally.</li>
 							<li>If renderResponse method is called, advance to the Render Response phase.</li>
 							<li>Broadcasts queued events (if any) to interested listeners.</li>
-							<li>If components have "immediate" attributes set to true, then the validations, conversions, and events associated with these components will be processed during this phase.</li>
+							<li>If <em style="color: #00a663">immediate="true"</em>, then the validations, conversions, and events of these components will be processed during this phase.</li>
 							<li>At the end of this phase, the components are set to their new values, and messages and events have been queued.</li>
 							<li>If the current request is identified as a partial request, the partial context is retrieved from the FacesContext, and the partial processing method is applied.</li>
 							<li></li>
