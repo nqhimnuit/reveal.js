@@ -20,6 +20,8 @@
 					<li>JSF Overview</li>
 					<li>A Simple JSF Application</li>
 					<li>JSF lifecycle</li>
+					<li>Ajax in JSF</li>
+					<li></li>
 				</ol>
 			</section>
 			<section>
@@ -156,9 +158,11 @@ public class LoginController implements Serializable {
 					<h3>JSF lifecycle</h3>
 					<div>
 						Restore View Phase
-						- builds the view of the page
-						- wires event handlers and validators to components in the view
-						- saves the view in the FacesContext instance
+						<ul>
+							<li>Builds the view of the page</li>
+							<li>Wires event handlers and validators to components in the view</li>
+							<li>Saves the view in the FacesContext instance</li>
+						</ul>
 					</div>
 				</section>
 				<section>
@@ -169,11 +173,8 @@ public class LoginController implements Serializable {
 							<li>Store values of each component locally.</li>
 							<li>If renderResponse method is called, advance to the Render Response phase.</li>
 							<li>Broadcasts queued events (if any) to interested listeners.</li>
-							<li>If <em style="color: #00a663">immediate="true"</em>, then the validations, conversions, and events of these components will be processed during this phase.</li>
-							<li>At the end of this phase, the components are set to their new values, and messages and events have been queued.</li>
-							<li>If the current request is identified as a partial request, the partial context is retrieved from the FacesContext, and the partial processing method is applied.</li>
-							<li></li>
-							<li></li>
+							<li>Handle component with attr <em style="color: #00a663">immediate="true"</em></li>
+							<li>Messages and events added to queue.</li>
 						</ul>
 					</div>
 				</section>
@@ -183,10 +184,10 @@ public class LoginController implements Serializable {
 						Process Validations Phase
 						<ul>
 							<li>Perform all validators registered on the components</li>
-							<li>If any validate methods or event listeners have called the renderResponse method on the current FacesContext, the JavaServer Faces implementation skips to the Render Response phase.</li>
-							<li>if the application needs to redirect to a different web application resource or generate a response that does not contain any JavaServer Faces components, it can call the FacesContext.responseComplete method.</li>
-							<li>If events have been queued during this phase, the JavaServer Faces implementation broadcasts them to interested listeners.</li>
-							<li>If the current request is identified as a partial request, the partial context is retrieved from the FacesContext, and the partial processing method is applied.</li>
+							<li>If renderResponse method is called, advance to the Render Response phase.</li>
+							<li>if you want to handle response yourself and no need to render response, use
+								FacesContext.responseComplete().</li>
+							<li>Broadcasts queued events (if any) to interested listeners.</li>
 						</ul>
 					</div>
 				</section>
@@ -196,10 +197,10 @@ public class LoginController implements Serializable {
 						Update Model Values Phase
 						<ul>
 							<li>Update values to managed beans</li>
-							<li>If any updateModels methods or any listeners have called the renderResponse method on the current FacesContext instance, the JavaServer Faces implementation skips to the Render Response phase.</li>
-							<li>if the application needs to redirect to a different web application resource or generate a response that does not contain any JavaServer Faces components, it can call the FacesContext.responseComplete method.</li>
-							<li>If any events have been queued during this phase, the JavaServer Faces implementation broadcasts them to interested listeners.</li>
-							<li>If the current request is identified as a partial request, the partial context is retrieved from the FacesContext, and the partial processing method is applied.</li>
+							<li>If renderResponse method is called, advance to the Render Response phase.</li>
+							<li>if you want to handle response yourself and no need to render response, use
+								FacesContext.responseComplete().</li>
+							<li>Broadcasts queued events (if any) to interested listeners.</li>
 						</ul>
 					</div>
 				</section>
@@ -209,9 +210,9 @@ public class LoginController implements Serializable {
 						Invoke Application Phase
 						<ul>
 							<li>Apply business logic </li>
-							<li>if the application needs to redirect to a different web application resource or generate a response that does not contain any JavaServer Faces components, it can call the FacesContext.responseComplete method.</li>
-							<li>If the view being processed was reconstructed from state information from a previous request and if a component has fired an event, these events are broadcast to interested listeners.</li>
-							<li>Advance to Render Response phase</li>
+							<li>if you want to handle response yourself and no need to render response, use
+								FacesContext.responseComplete().</li>
+							<li>Broadcasts queued events (if any) to interested listeners.</li>
 						</ul>
 					</div>
 				</section>
@@ -223,16 +224,38 @@ public class LoginController implements Serializable {
 							<li>Build the view</li>
 							<li>Display all queued error messages during previous phases</li>
 							<li>Save state of subsequent requests</li>
-							<li></li>
 						</ul>
 					</div>
 				</section>
 			</section>
 			<section>
-				<h1>Q&A</h1>
+				<section>
+					<h2>Ajax in JSF</h2>
+				</section>
+				<section>
+					<h3>Ajax in JSF</h3>
+					- AJAX = Asynchronous JavaScript And XML
+					- Enable creation of dynamic and highly responsive web applications
+					- Partial update of the web content, avoiding complete page reloads
+				</section>
+				<section>
+					<h3>Ajax in JSF</h3>
+				</section>
+				<section>
+					<h3>Ajax in JSF</h3>
+				</section>
+				<section>
+					<h3>Ajax in JSF</h3>
+				</section>
+				<section>
+					<h3>Ajax in JSF</h3>
+				</section>
 			</section>
 			<section>
-				<h1>Thank you!</h1>
+				<h2>Q&A</h2>
+			</section>
+			<section>
+				<h2>Thank you!</h2>
 			</section>
 		</div>
 	</div>
