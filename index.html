@@ -132,7 +132,7 @@ public class LoginController implements Serializable {
 				<section>
 					<h3>JSF lifecycle</h3>
 					<div style="text-align: left;">
-						Execute phase:
+						<b>Execute phase:</b>
 						<ol>
 							<li>The application <em style="color: #00a663">view</em>
 								is built(*) or restored(**).</li>
@@ -150,27 +150,31 @@ public class LoginController implements Serializable {
 				</section>
 				<section>
 					<h3>JSF lifecycle</h3>
-					In the Render phase, the requested view is rendered as a response to the client. Rendering is
-					typically the process of generating output, such as HTML or XHTML, that can be read by the client,
-					usually a browser.
+					<div style="text-align: left;">
+						<b>Render phase:</b>
+						Generating output, such as <em style="color: #00a663">HTML</em> or
+						<em style="color: #00a663">XHTML</em>, that can be read by the client,
+						usually a browser.
+					</div>
 				</section>
 				<section>
 					<h3>JSF lifecycle</h3>
-					<div>
-						Restore View Phase
+					<div style="text-align: left;">
+						<b>Restore View Phase</b>
 						<ul>
-							<li>Builds the view of the page</li>
-							<li>Wires event handlers and validators to components in the view</li>
-							<li>Saves the view in the FacesContext instance</li>
+							<li>Builds/restores the <em style="color: #00a663">view</em> of the page</li>
+							<li>Wires <em style="color: #00a663">event</em> handlers and
+								<em style="color: #00a663">validators</em> to components in the view</li>
+							<li><em style="color: #00a663">Saves</em> the view in the FacesContext instance</li>
 						</ul>
 					</div>
 				</section>
 				<section>
 					<h3>JSF lifecycle</h3>
-					<div>
+					<div style="text-align: left;">
 						Apply Request Values Phase
 						<ul>
-							<li>Store values of each component locally.</li>
+							<li><em style="color: #00a663">Store</em> values of each component locally.</li>
 							<li>If renderResponse method is called, advance to the Render Response phase.</li>
 							<li>Broadcasts queued events (if any) to interested listeners.</li>
 							<li>Handle component with attr <em style="color: #00a663">immediate="true"</em></li>
@@ -180,49 +184,49 @@ public class LoginController implements Serializable {
 				</section>
 				<section>
 					<h3>JSF lifecycle</h3>
-					<div>
+					<div style="text-align: left;">
 						Process Validations Phase
 						<ul>
-							<li>Perform all validators registered on the components</li>
+							<li>Perform all <em style="color: #00a663">validators</em> registered on the components</li>
 							<li>If renderResponse method is called, advance to the Render Response phase.</li>
 							<li>if you want to handle response yourself and no need to render response, use
-								FacesContext.responseComplete().</li>
+								<em style="color: #00a663">FacesContext.responseComplete()</em>.</li>
 							<li>Broadcasts queued events (if any) to interested listeners.</li>
 						</ul>
 					</div>
 				</section>
 				<section>
 					<h3>JSF lifecycle</h3>
-					<div>
+					<div style="text-align: left;">
 						Update Model Values Phase
 						<ul>
-							<li>Update values to managed beans</li>
+							<li>Update values to <em style="color: #00a663">managed beans</em></li>
 							<li>If renderResponse method is called, advance to the Render Response phase.</li>
 							<li>if you want to handle response yourself and no need to render response, use
-								FacesContext.responseComplete().</li>
+								<em style="color: #00a663">FacesContext.responseComplete()</em>.</li>
 							<li>Broadcasts queued events (if any) to interested listeners.</li>
 						</ul>
 					</div>
 				</section>
 				<section>
 					<h3>JSF lifecycle</h3>
-					<div>
+					<div style="text-align: left;">
 						Invoke Application Phase
 						<ul>
-							<li>Apply business logic </li>
+							<li>Apply <em style="color: #00a663">business logic</em></li>
 							<li>if you want to handle response yourself and no need to render response, use
-								FacesContext.responseComplete().</li>
+								<em style="color: #00a663">FacesContext.responseComplete()</em>.</li>
 							<li>Broadcasts queued events (if any) to interested listeners.</li>
 						</ul>
 					</div>
 				</section>
 				<section>
 					<h3>JSF lifecycle</h3>
-					<div>
+					<div style="text-align: left;">
 						Render Response Phase
 						<ul>
 							<li>Build the view</li>
-							<li>Display all queued error messages during previous phases</li>
+							<li>Display all queued <em style="color: #00a663">error messages</em> during previous phases</li>
 							<li>Save state of subsequent requests</li>
 						</ul>
 					</div>
