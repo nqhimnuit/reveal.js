@@ -21,7 +21,7 @@
 					<li>A Simple JSF Application</li>
 					<li>JSF lifecycle</li>
 					<li>Ajax in JSF</li>
-					<li></li>
+					<li>Enhance Webpage with Bootstrap</li>
 				</ol>
 			</section>
 			<section>
@@ -31,18 +31,29 @@
 				<section>
 					<h3>JSF Overview</h3>
 					<ul>
-						<li>A Java-based web framework for user interface, part of Java EE standard.</li>
-						<li>A typical JavaServer Faces application includes</li>
-						<ol>
-							<li>web pages</li>
-							<li>tags & components in the web page</li>
-							<li>managed beans</li>
-							<li>web deployment descriptor</li>
+						<li>A <em style="color: #00a663">Java-based</em> web framework for <em
+								style="color: #00a663">UI</em></li>
+						<li>Part of <em style="color: #00a663">Java EE</em> standard.</li>
+						<li>Uses <em style="color: #00a663">Facelets</em> for view declaration language.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>JSF Overview</h3>
+					A typical JSF application includes:
+					<ol>
+						<li>web <em style="color: #00a663">pages</em> include
+							<em style="color: #00a663">tags</em> &
+							<em style="color: #00a663">components</em>
+						</li>
+						<li><em style="color: #00a663">managed</em> beans</li>
+						<li>web <em style="color: #00a663">deployment descriptor</em></li>
+					</ol>
+					<aside class="notes">
+						<ul>
 							<li>application configuration resource (optional)</li>
 							<li>custom objects, tags (optional)</li>
-						</ol>
-						<li>Uses Facelets for view declaration language.</li>
-					</ul>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section>
@@ -60,18 +71,16 @@
 				<section>
 					<h3>A Simple JSF Application</h3>
 					web page with Facelets
-					<pre>
+					<pre style="font-size: 19px;">
 						<code><h:form>
-	<div>
-		<h:outputLabel for="txtUsername" value="username: " />
-		<h:inputText id="txtUsername" value="#{loginController.username}" />
-	</div>
-	<div>
-		<h:outputLabel for="txtPassword" value="password: " />
-		<h:inputText id="txtPassword" value="#{loginController.password}" />
-	</div>
-	<h:commandButton id="btnSubmit" value="Submit" action="user-info" />
-	<h:link value="Go to user-info page" outcome="user-info.xhtml" />
+	<h:outputLabel for="txtUsername" value="username: "></h:outputLabel>
+	<h:inputText id="txtUsername" value="#{loginController.username}"></h:inputText>
+
+	<h:outputLabel for="txtPassword" value="password: "></h:outputLabel>
+	<h:inputText id="txtPassword" value="#{loginController.password}"></h:inputText>
+
+	<h:commandButton id="btnSubmit" value="Submit" action="user-info"></h:commandButton>
+	<h:link value="Go to user-info page" outcome="user-info.xhtml"></h:link>
 </h:form></code>
 </pre>
 
@@ -79,7 +88,7 @@
 				<section>
 					<h3>A Simple JSF Application</h3>
 					a Managed Bean
-					<pre><code>@Named
+					<pre style="font-size: 19px;"><code>@Named
 @SessionScoped
 public class LoginController implements Serializable {
 
@@ -160,7 +169,7 @@ public class LoginController implements Serializable {
 				<section>
 					<h3>JSF lifecycle</h3>
 					<div style="text-align: left;">
-						<b>Restore View Phase</b>
+						<b>1 - Restore View Phase</b>
 						<ul>
 							<li>Builds/restores the <em style="color: #00a663">view</em> of the page</li>
 							<li>Wires <em style="color: #00a663">event</em> handlers and
@@ -172,12 +181,14 @@ public class LoginController implements Serializable {
 				<section>
 					<h3>JSF lifecycle</h3>
 					<div style="text-align: left;">
-						Apply Request Values Phase
+						<b>2- Apply Request Values Phase</b>
 						<ul>
 							<li><em style="color: #00a663">Store</em> values of each component locally.</li>
-							<li>If renderResponse method is called, advance to the Render Response phase.</li>
+							<li>If <code><em style="color: #00a663">renderResponse()</em></code> is called, advance to
+								the Render Response phase.</li>
 							<li>Broadcasts queued events (if any) to interested listeners.</li>
-							<li>Handle component with attr <em style="color: #00a663">immediate="true"</em></li>
+							<li>Handle component with attr <code><em style="color: #00a663">immediate="true"</em></code>
+							</li>
 							<li>Messages and events added to queue.</li>
 						</ul>
 					</div>
@@ -185,12 +196,13 @@ public class LoginController implements Serializable {
 				<section>
 					<h3>JSF lifecycle</h3>
 					<div style="text-align: left;">
-						Process Validations Phase
+						<b>3 - Process Validations Phase</b>
 						<ul>
 							<li>Perform all <em style="color: #00a663">validators</em> registered on the components</li>
-							<li>If renderResponse method is called, advance to the Render Response phase.</li>
+							<li>If <code><em style="color: #00a663">renderResponse()</em></code> is called, advance to
+								the Render Response phase.</li>
 							<li>if you want to handle response yourself and no need to render response, use
-								<em style="color: #00a663">FacesContext.responseComplete()</em>.</li>
+								<code><em style="color: #00a663">FacesContext.responseComplete()</em></code>.</li>
 							<li>Broadcasts queued events (if any) to interested listeners.</li>
 						</ul>
 					</div>
@@ -198,12 +210,13 @@ public class LoginController implements Serializable {
 				<section>
 					<h3>JSF lifecycle</h3>
 					<div style="text-align: left;">
-						Update Model Values Phase
+						<b>4 - Update Model Values Phase</b>
 						<ul>
 							<li>Update values to <em style="color: #00a663">managed beans</em></li>
-							<li>If renderResponse method is called, advance to the Render Response phase.</li>
+							<li>If <code><em style="color: #00a663">renderResponse()</em></code> is called, advance to
+								the Render Response phase.</li>
 							<li>if you want to handle response yourself and no need to render response, use
-								<em style="color: #00a663">FacesContext.responseComplete()</em>.</li>
+								<code><em style="color: #00a663">FacesContext.responseComplete()</em></code>.</li>
 							<li>Broadcasts queued events (if any) to interested listeners.</li>
 						</ul>
 					</div>
@@ -211,11 +224,11 @@ public class LoginController implements Serializable {
 				<section>
 					<h3>JSF lifecycle</h3>
 					<div style="text-align: left;">
-						Invoke Application Phase
+						<b>5 - Invoke Application Phase</b>
 						<ul>
 							<li>Apply <em style="color: #00a663">business logic</em></li>
 							<li>if you want to handle response yourself and no need to render response, use
-								<em style="color: #00a663">FacesContext.responseComplete()</em>.</li>
+								<code><em style="color: #00a663">FacesContext.responseComplete()</em></code>.</li>
 							<li>Broadcasts queued events (if any) to interested listeners.</li>
 						</ul>
 					</div>
@@ -223,10 +236,11 @@ public class LoginController implements Serializable {
 				<section>
 					<h3>JSF lifecycle</h3>
 					<div style="text-align: left;">
-						Render Response Phase
+						<b>6 - Render Response Phase</b>
 						<ul>
 							<li>Build the view</li>
-							<li>Display all queued <em style="color: #00a663">error messages</em> during previous phases</li>
+							<li>Display all queued <em style="color: #00a663">error messages</em> during previous phases
+							</li>
 							<li>Save state of subsequent requests</li>
 						</ul>
 					</div>
@@ -238,22 +252,23 @@ public class LoginController implements Serializable {
 				</section>
 				<section>
 					<h3>Ajax in JSF</h3>
-					- AJAX = Asynchronous JavaScript And XML
-					- Enable creation of dynamic and highly responsive web applications
-					- Partial update of the web content, avoiding complete page reloads
+					<ul>
+						<li>AJAX = <em style="color: #00a663"><b>A</b></em>synchronous
+							<em style="color: #00a663"><b>J</b></em>avaScript
+							<em style="color: #00a663">><b>A</b></em>nd
+							<em style="color: #00a663"><b>X</b></em>ML
+						</li>
+						<li>Enable creation of dynamic and highly responsive web applications</li>
+						<li>Partial update of the web content, avoiding complete page reloads</li>
+					</ul>
 				</section>
-				<section>
-					<h3>Ajax in JSF</h3>
-				</section>
-				<section>
-					<h3>Ajax in JSF</h3>
-				</section>
-				<section>
-					<h3>Ajax in JSF</h3>
-				</section>
-				<section>
-					<h3>Ajax in JSF</h3>
-				</section>
+			</section>
+			<section>
+				<h2>Enhance Webpage with Bootstrap</h2>
+			</section>
+			<section>
+				<h2>Using PrimeFaces</h2>
+				to be continue...
 			</section>
 			<section>
 				<h2>Q&A</h2>
