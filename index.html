@@ -71,16 +71,15 @@
 				<section>
 					<h3>A Simple JSF Application</h3>
 					web page with Facelets
-					<pre style="font-size: 19px;">
+					<pre style="font-size: 20px;">
 						<code><h:form>
-	<h:outputLabel for="txtUsername" value="username: "></h:outputLabel>
-	<h:inputText id="txtUsername" value="#{loginController.username}"></h:inputText>
+  <h:outputLabel for="txtUsername" value="username: "></h:outputLabel>
+  <h:inputText id="txtUsername" value="#{loginController.username}"></h:inputText>
 
-	<h:outputLabel for="txtPassword" value="password: "></h:outputLabel>
-	<h:inputText id="txtPassword" value="#{loginController.password}"></h:inputText>
+  <h:outputLabel for="txtPassword" value="password: "></h:outputLabel>
+  <h:inputText id="txtPassword" value="#{loginController.password}"></h:inputText>
 
-	<h:commandButton id="btnSubmit" value="Submit" action="user-info"></h:commandButton>
-	<h:link value="Go to user-info page" outcome="user-info.xhtml"></h:link>
+  <h:commandButton id="btnSubmit" value="Submit" action="user-info"></h:commandButton>
 </h:form></code>
 </pre>
 
@@ -89,21 +88,20 @@
 					<h3>A Simple JSF Application</h3>
 					a Managed Bean
 					<pre style="font-size: 19px;"><code>@Named
-@SessionScoped
-public class LoginController implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+@RequesScoped
+public class LoginController {
 
 	private String username;
 
 	private String password;
 
-	public void getUserInfo() {
-		LOG.info("Username = " + username +
-			" &&& Password = " + password);
-	}
+	public String getUsername() { return username; }
 
-// getters & setters
+	public void setUsername(String username) { this.username = username; }
+
+	public String getPassword() { return password; }
+
+	public void setPassword(String password) { this.password = password; }
 }</code></pre>
 				</section>
 				<section>
@@ -255,7 +253,7 @@ public class LoginController implements Serializable {
 					<ul>
 						<li>AJAX = <em style="color: #00a663"><b>A</b></em>synchronous
 							<em style="color: #00a663"><b>J</b></em>avaScript
-							<em style="color: #00a663">><b>A</b></em>nd
+							<em style="color: #00a663"><b>A</b></em>nd
 							<em style="color: #00a663"><b>X</b></em>ML
 						</li>
 						<li>Enable creation of dynamic and highly responsive web applications</li>
